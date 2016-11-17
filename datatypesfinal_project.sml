@@ -13,9 +13,9 @@ datatype HeadScales = Undifferentiated | LargePlatelike;
 
 datatype Venom = Venomous | NonVenomous;
 
-val Bitis = Genus(VerticallyElliptical,Absent,[Keeled],Undifferentiated);
-val Causus = Genus(Round,Present,[Smooth,Keeled],LargePlatelike);
-val Cerastes = Genus(VerticallyElliptical,Absent,[Keeled],Undifferentiated);
-val Boaedon = Genus(VerticallyElliptical,Present,[Smooth],LargePlatelike);
-val Crotaphopeltis = Genus(VerticallyElliptical,Present,[Smooth,Keeled],LargePlatelike);
-val Dasypeltis = Genus(VerticallyElliptical,Absent,[Keeled],LargePlatelike);
+val Bitis = Genus(VerticallyElliptical,Absent,[Keeled],Undifferentiated,Venomous);
+val Causus = Genus(Round,Present,[Smooth,Keeled],LargePlatelike,Venomous);
+val Cerastes = Genus(VerticallyElliptical,Absent,[Keeled],Undifferentiated,Venomous);
+val Boaedon = Genus(VerticallyElliptical,Present,[Smooth],LargePlatelike,NonVenomous);
+val Crotaphopeltis = Genus(VerticallyElliptical,Present,[Smooth,Keeled],LargePlatelike,NonVenomous);
+val Dasypeltis = Genus(VerticallyElliptical,Absent,[Keeled],LargePlatelike,NonVenomous);
