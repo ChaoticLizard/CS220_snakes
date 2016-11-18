@@ -1,7 +1,7 @@
 (*Taxonomic datatypes*)
 
-datatype Genus = PupilShape * LorealScale * DorsalScaleCharacter list * Headscales * Venomous;
-datatype Specimen = PupilShape * LorealScale * DorsalScaleCharacter * Headscales;
+datatype Snake = Genus of PupilShape * LorealScale * DorsalScaleCharacter list * HeadScales * Venom;
+(*datatype Specimen = PupilShape * LorealScale * DorsalScaleCharacter * Headscales;*)
 
 (*Character datatypes*)
 
@@ -11,8 +11,7 @@ datatype LorealScale = Absent | Present;
 datatype DorsalScaleCharacter = Keeled | Smooth;
 datatype HeadScales = Undifferentiated | LargePlatelike;
 
-
-datatype Venom = Venomous | NonVenomous;
+datatype Venom = Venomous | NonVenomous; 
 
 val Bitis = Genus(VerticallyElliptical,Absent,[Keeled],Undifferentiated,Venomous);
 val Causus = Genus(Round,Present,[Smooth,Keeled],LargePlatelike,Venomous);
