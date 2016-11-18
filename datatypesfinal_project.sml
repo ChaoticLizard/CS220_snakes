@@ -8,17 +8,17 @@ datatype Snake = Genus of PupilShape * LorealScale * DorsalScaleCharacter list *
 datatype PupilShape = Round | VerticallyElliptical;
 
 datatype LorealScale = Absent | Present;
-datatype DorsalScaleCharacter = Keeled | Smooth;
+datatype DorsalScaleCharacter = Keeled | Smooth | KeeledAndSmooth;
 datatype HeadScales = Undifferentiated | LargePlatelike;
 
 datatype Venom = Venomous | NonVenomous; 
 
-val Bitis = Genus(VerticallyElliptical,Absent,[Keeled],Undifferentiated,Venomous);
-val Causus = Genus(Round,Present,[Smooth,Keeled],LargePlatelike,Venomous);
-val Cerastes = Genus(VerticallyElliptical,Absent,[Keeled],Undifferentiated,Venomous);
+val Bitis = Genus(VerticallyElliptical,Absent, Keeled,Undifferentiated,Venomous);
+val Causus = Genus(Round,Present, SmoothAndKeeled,LargePlatelike,Venomous);
+val Cerastes = Genus(VerticallyElliptical,Absent, Keeled,Undifferentiated,Venomous);
 
-val Boaedon = Genus(VerticallyElliptical,Present,[Smooth],LargePlatelike,NonVenomous);
-val Crotaphopeltis = Genus(VerticallyElliptical,Present,[Smooth,Keeled],LargePlatelike,NonVenomous);
-val Dasypeltis = Genus(VerticallyElliptical,Absent,[Keeled],LargePlatelike,NonVenomous);
+val Boaedon = Genus(VerticallyElliptical,Present,Smooth,LargePlatelike,NonVenomous);
+val Crotaphopeltis = Genus(VerticallyElliptical,Present,SmoothAndKeeled,LargePlatelike,NonVenomous);
+val Dasypeltis = Genus(VerticallyElliptical,Absent,Keeled,LargePlatelike,NonVenomous);
 
 val unknownsnake = Specimen(VerticallyElliptical,Absent,Keeled,Undifferentiated);
