@@ -1,7 +1,6 @@
-(*Taxonomic datatypes*)
+(*Taxonomic datatype*)
 
-datatype Snake = Genus of PupilShape * LorealScale * DorsalScaleCharacter list * HeadScales * Venom;
-(*datatype Specimen = PupilShape * LorealScale * DorsalScaleCharacter * Headscales;*)
+datatype Snake = Genus of PupilShape * LorealScale * DorsalScaleCharacter * HeadScales;
 
 (*Character datatypes*)
 
@@ -11,14 +10,20 @@ datatype LorealScale = Absent | Present;
 datatype DorsalScaleCharacter = Keeled | Smooth | KeeledAndSmooth;
 datatype HeadScales = Undifferentiated | LargePlatelike;
 
-datatype Venom = Venomous | NonVenomous; 
+(*Venomous Snakes*)
+val Bitis = Genus(VerticallyElliptical,Absent, Keeled,Undifferentiated);
+val Causus = Genus(Round,Present, KeeledAndSmooth,LargePlatelike);
+val Cerastes = Genus(VerticallyElliptical,Absent, Keeled,Undifferentiated);
 
-val Bitis = Genus(VerticallyElliptical,Absent, Keeled,Undifferentiated,Venomous);
-val Causus = Genus(Round,Present, SmoothAndKeeled,LargePlatelike,Venomous);
-val Cerastes = Genus(VerticallyElliptical,Absent, Keeled,Undifferentiated,Venomous);
-
-val Boaedon = Genus(VerticallyElliptical,Present,Smooth,LargePlatelike,NonVenomous);
-val Crotaphopeltis = Genus(VerticallyElliptical,Present,SmoothAndKeeled,LargePlatelike,NonVenomous);
-val Dasypeltis = Genus(VerticallyElliptical,Absent,Keeled,LargePlatelike,NonVenomous);
+(*NonVenomous Snakes*)
+val Boaedon = Genus(VerticallyElliptical,Present,Smooth,LargePlatelike);
+val Crotaphopeltis = Genus(VerticallyElliptical,Present,KeeledAndSmooth,LargePlatelike);
+val Dasypeltis = Genus(VerticallyElliptical,Absent,Keeled,LargePlatelike);
 
 val unknownsnake = Specimen(VerticallyElliptical,Absent,Keeled,Undifferentiated);
+
+fun checkCharacter (character, target) = character = target;
+
+fun hasVenomousCharacteristics (PupilShape, LorealScale, DorsalScaleCharacter, HeadScales) = if (checkCharacter(PupilShape, Round)) then true else if (checkCharacter(HeadScales, Undifferentiated)) then true else false;
+
+fun isSnakeVenomous (Genus(list)) = isVenomous(list); 
