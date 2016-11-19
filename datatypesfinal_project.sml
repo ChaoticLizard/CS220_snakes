@@ -24,6 +24,11 @@ val unknownsnake = Specimen(VerticallyElliptical,Absent,Keeled,Undifferentiated)
 
 fun checkCharacter (character, target) = character = target;
 
-fun hasVenomousCharacteristics (PupilShape, LorealScale, DorsalScaleCharacter, HeadScales) = if (checkCharacter(PupilShape, Round)) then true else if (checkCharacter(HeadScales, Undifferentiated)) then true else false;
+fun hasVenomousCharacteristics (PupilShape, LorealScale, DorsalScaleCharacter, HeadScales) =
+  if (checkCharacter(PupilShape, Round))
+  then true
+  else if (checkCharacter(HeadScales, Undifferentiated))
+  then true
+  else false;
 
 fun isSnakeVenomous (Genus(list)) = isVenomous(list); 
