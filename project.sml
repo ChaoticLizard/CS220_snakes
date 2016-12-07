@@ -36,6 +36,8 @@ val unknownsnake = Specimen(SOME VerticallyElliptical, SOME Absent, SOME Keeled,
 val maybefriendlysnake = Specimen(NONE, SOME Present, SOME Keeled, SOME LargePlatelike);
 val friendlysnake = Specimen(SOME VerticallyElliptical, SOME Absent, SOME Keeled, SOME LargePlatelike);
 
+(* Helper functions *)
+
 fun contains(x, []) = false
   | contains(x, y::rest) =
      x = y orelse contains(x, rest);
@@ -89,8 +91,8 @@ fun isVenomous(snek,generalist) =
 
 identify(unknownsnake, Genera); (*Should return the two genera that match this snake's description, both venomous *)
 isVenomous(unknownsnake, Genera); (* Should return "Venomous" *)
-identify(maybefriendlysnake, Genera);
-isVenomous(maybefriendlysnake, Genera);
+identify(maybefriendlysnake, Genera); (* Should return a list of two genera, one venomous and one nonvenomous *)
+isVenomous(maybefriendlysnake, Genera); (* Should state that this specimen could be venomous *)
 identify(friendlysnake, Genera); (* Should return a single genus, which is nonvenomous *)
 isVenomous(friendlysnake, Genera); (*Should return "nonvenomous" *)
 
